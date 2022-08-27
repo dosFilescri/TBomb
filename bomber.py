@@ -64,7 +64,7 @@ def bann_text():
                                          """
     if ASCII_MODE:
         logo = ""
-    version = "Version: "+__VERSION__
+    version = "Версия: "+__VERSION__
     contributors = "Contributors: "+" ".join(__CONTRIBUTORS__)
     print(random.choice(ALL_COLORS) + logo + RESET_ALL)
     mesgdcrt.SuccessMessage(version)
@@ -77,7 +77,7 @@ def check_intr():
         requests.get("https://motherfuckingwebsite.com")
     except Exception:
         bann_text()
-        mesgdcrt.FailureMessage("Poor internet connection detected")
+        mesgdcrt.FailureMessage("Обнаруженое подключение к интернету")
         sys.exit(2)
 
 
@@ -94,7 +94,7 @@ def do_zip_update():
     else:
         zip_url = "https://github.com/TheSpeedX/TBomb/archive/master.zip"
         dir_name = "TBomb-master"
-    print(ALL_COLORS[0]+"Downloading ZIP ... "+RESET_ALL)
+    print(ALL_COLORS[0]+"Загрузка ZIP ... "+RESET_ALL)
     response = requests.get(zip_url)
     if response.status_code == 200:
         zip_content = response.content
@@ -115,13 +115,13 @@ def do_zip_update():
         except Exception:
             mesgdcrt.FailureMessage("Error occured while extracting !!")
     if success:
-        mesgdcrt.SuccessMessage("TBomb was updated to the latest version")
+        mesgdcrt.SuccessMessage("TBomb обновлен до последней версии")
         mesgdcrt.GeneralMessage(
-            "Please run the script again to load the latest version")
+            "Пожалуйста перезапустите клиент если вышло обновление")
     else:
-        mesgdcrt.FailureMessage("Unable to update TBomb.")
+        mesgdcrt.FailureMessage("не удалось обновить TBomb.")
         mesgdcrt.WarningMessage(
-            "Grab The Latest one From https://github.com/TheSpeedX/TBomb.git")
+            "скачайте последнюю версию с https://github.com/TheSpeedX/TBomb.git")
 
     sys.exit()
 
